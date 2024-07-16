@@ -6,11 +6,15 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.util.fastForEach
 import com.youssef.chessgame.board.ChessBoard
 import com.youssef.chessgame.ui.utils.bounceClick
@@ -63,6 +67,7 @@ fun ChessBoard(board: ChessBoard) {
                                             ChessSquare(
                                                 color = Color.Red.copy(alpha = 0.5f),
                                                 modifier = Modifier
+                                                    .padding(8.dp)
                                                     .bounceClick {
                                                         board.movePiece(
                                                             selectedPiece,
@@ -72,12 +77,15 @@ fun ChessBoard(board: ChessBoard) {
                                                         board.removePiece(board.pieces.first { it.position == position && it != selectedPiece })
                                                         board.selectedPiece = null
                                                     }
+                                                    .clip(CircleShape)
+
 
                                             )
                                         } else {
                                             ChessSquare(
                                                 color = Color.Blue.copy(alpha = 0.5f),
                                                 modifier = Modifier
+                                                    .padding(8.dp)
                                                     .bounceClick {
                                                         board.movePiece(
                                                             selectedPiece,
@@ -86,6 +94,8 @@ fun ChessBoard(board: ChessBoard) {
                                                         )
                                                         board.selectedPiece = null
                                                     }
+                                                    .clip(CircleShape)
+
                                             )
                                         }
                                     }

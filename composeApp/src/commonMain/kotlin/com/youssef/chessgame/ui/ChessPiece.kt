@@ -13,6 +13,7 @@ import androidx.compose.ui.unit.sp
 import com.youssef.chessgame.piece.ChessType
 import com.youssef.chessgame.piece.Piece
 import com.youssef.chessgame.piece.Team
+import kotlin.math.roundToInt
 
 @Composable
 fun ChessPiece(

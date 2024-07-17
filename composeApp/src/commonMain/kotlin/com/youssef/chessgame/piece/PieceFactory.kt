@@ -10,7 +10,14 @@ import com.youssef.chessgame.movement.strategies.RookMovementStrategy
 import com.youssef.chessgame.movement.strategies.CustomMovementStrategy
 
 object PieceFactory {
-    fun createPiece(type: ChessType, team: Team, steps: Int, position: Offset): Piece {
+    fun createWhitePiece(type: ChessType, steps: Int, position: Offset): Piece {
+        return createPiece(type, Team.White, steps, position)
+    }
+    fun createBlackPiece(type: ChessType, steps: Int, position: Offset): Piece {
+        return createPiece(type, Team.Black, steps, position)
+    }
+
+     fun createPiece(type: ChessType, team: Team, steps: Int, position: Offset): Piece {
         val movementStrategy = when (type) {
             ChessType.King -> KingMovementStrategy()
             ChessType.Queen -> QueenMovementStrategy()
@@ -23,4 +30,12 @@ object PieceFactory {
         }
         return ChessPiece(type, team, steps, position, movementStrategy)
     }
+
+    fun createWhiteKing(position: Offset) = createWhitePiece(ChessType.King, 1, position)
+
+    fun createBlackKing(position: Offset) = createBlackPiece(ChessType.King, 1, position)
+
+    fun createWhiteQueen(position: Offset) = createWhitePiece(ChessType.Queen, 7, position)
+
+    fun createBlackQueen(position: Offset) = createBlackPiece(ChessType.Queen, 7, position)
 }

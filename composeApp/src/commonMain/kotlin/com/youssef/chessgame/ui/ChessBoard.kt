@@ -40,7 +40,7 @@ fun ChessBoard(board: ChessBoard) {
                 Row(modifier = Modifier.weight(1f)) {
                     for (col in 0 until 8) {
                         ChessSquare(
-                            color = if ((row + col) % 2 == 0) Color.White else Color.LightGray,
+                            color = if ((row + col) % 2 == 0) Color(0xffEBECD0) else Color(0xff779556),
                             modifier = Modifier.weight(1f)
                         ) {
                             board.pieces.filter {

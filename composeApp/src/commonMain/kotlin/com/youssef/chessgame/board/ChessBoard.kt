@@ -11,14 +11,14 @@ import com.youssef.chessgame.piece.Team
 
 class ChessBoard {
     val pieces = mutableListOf<Piece>(
-        PieceFactory.createPiece(ChessType.King, Team.White, 1, Offset(4f, 3f)),
-        PieceFactory.createPiece(ChessType.King, Team.Black, 1, Offset(4f, 7f)),
-        PieceFactory.createPiece(ChessType.Lion, Team.White, 2, Offset(4f, 4f)),
-        PieceFactory.createPiece(ChessType.Bishop, Team.White, 7, Offset(0f, 0f)),
-        PieceFactory.createPiece(ChessType.Queen, Team.Black, 7, Offset(1f, 1f)),
-        PieceFactory.createPiece(ChessType.Knight, Team.Black, 7, Offset(0f, 3f)),
-        PieceFactory.createPiece(ChessType.Pawn, Team.White, 1, Offset(6f, 6f)),
-        PieceFactory.createPiece(ChessType.Tiger, Team.White, 1, Offset(2f, 5f))
+        PieceFactory.createWhiteKing(Offset(4f, 3f)),
+        PieceFactory.createBlackKing(Offset(4f, 7f)),
+        PieceFactory.createBlackPiece(ChessType.Lion, 2, Offset(4f, 4f)),
+        PieceFactory.createBlackPiece(ChessType.Bishop, 7, Offset(0f, 0f)),
+        PieceFactory.createBlackPiece(ChessType.Queen, 7, Offset(1f, 1f)),
+        PieceFactory.createBlackPiece(ChessType.Knight, 7, Offset(0f, 3f)),
+        PieceFactory.createBlackPiece(ChessType.Pawn, 1, Offset(6f, 6f)),
+        PieceFactory.createBlackPiece(ChessType.Tiger, 1, Offset(2f, 5f))
         // Add more pieces as needed
     )
     var selectedPiece: Piece? by mutableStateOf(null)

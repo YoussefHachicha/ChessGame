@@ -5,11 +5,11 @@ import com.youssef.chessgame.movement.MovementStrategy
 import com.youssef.chessgame.movement.MovementStyleBuilder
 import com.youssef.chessgame.piece.Piece
 
-class BishopMovementStrategy: MovementStrategy {
+class BishopMovementStrategy(val steps: Int = 7): MovementStrategy {
     override fun getPossibleMoves(piece: Piece): Set<Offset> {
         return MovementStyleBuilder()
             .moveDiagonal()
             .build()
-            .flatMap { it.possibleMoves(piece.position, piece.steps) }.toSet()
+            .flatMap { it.possibleMoves(piece.position, steps) }.toSet()
     }
 }

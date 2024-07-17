@@ -5,7 +5,7 @@ import com.youssef.chessgame.piece.Piece
 import com.youssef.chessgame.movement.MovementStrategy
 import com.youssef.chessgame.movement.MovementStyleBuilder
 
-class QueenMovementStrategy : MovementStrategy {
+class QueenMovementStrategy(val steps: Int = 7) : MovementStrategy {
     override fun getPossibleMoves(piece: Piece): Set<Offset> {
         return MovementStyleBuilder()
             .moveForward()
@@ -14,6 +14,6 @@ class QueenMovementStrategy : MovementStrategy {
             .moveRight()
             .moveDiagonal()
             .build()
-            .flatMap { it.possibleMoves(piece.position, piece.steps) }.toSet()
+            .flatMap { it.possibleMoves(piece.position, steps) }.toSet()
     }
 }
